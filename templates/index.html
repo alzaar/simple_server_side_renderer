@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gin-Do</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <h1>Welcome To Gin-Do</h1>
+    <form action="/submit" method="post">
+      <label for="title">Task:</label>
+      <input type="text" id="title" name="title" required><br>
+
+      <input type="submit" value="Submit">
+  </form>
+
+  {{if .Submitted}}
+      <h2>Submitted Data</h2>
+      <ul>
+        {{range .Tasks}}
+            <li>{{.ID}}. {{.Title}} {{.CreatedAt}}</li>
+        {{end}}
+      </ul>
+  {{end}}
+    <script src="/assets/script.js"></script>
+</body>
+</html>
